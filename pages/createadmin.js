@@ -26,7 +26,11 @@ export default function AdminSignup() {
     description,
   };
 
-  const handleEmailChange = (event) => setEmail(event.target.value);
+  const handleEmailChange = (event) => {
+    const lowercaseEmail = event.target.value.toLowerCase();
+    setEmail(lowercaseEmail);
+  };
+  console.log(email);
   const handlePasswordChange = (event) => setPassword(event.target.value);
   const handleConfirmPasswordChange = (event) =>
     setConfirmPassword(event.target.value);

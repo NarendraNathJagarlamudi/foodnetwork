@@ -37,12 +37,6 @@ const FirebaseCredentials = CredentialsProvider({
     }
   },
 });
-// const adminEmails = [
-//   "narendra@gmail.com",
-//   "j.narendranath1722@gmail.com",
-//   "j.narendranath116116@gmail.com",
-//   "teja@gmail.com",
-// ];
 
 export const authOptions = {
   secret: process.env.SECRET,
