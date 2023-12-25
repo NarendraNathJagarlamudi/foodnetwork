@@ -14,10 +14,14 @@ export default function Products() {
   useEffect(() => {
     fetchProducts();
   }, []);
+
   async function fetchProducts() {
-    await axios.get("/api/products").then((response) => {
+    try {
+      const response = await axios.get("/api/products");
       setProducts(response.data);
-    });
+    } catch (error) {
+      console.error("Error fetching products:", error);
+    }
   }
   return (
     <Layout_admin>
