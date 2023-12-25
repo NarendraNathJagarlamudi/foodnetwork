@@ -5,11 +5,20 @@ import { useEffect, useState } from "react";
 
 export default function Products() {
   const [products, setProducts] = useState([]);
+  // useEffect(() => {
+  //   axios.get("/api/products").then((response) => {
+  //     setProducts(response.data);
+  //   });
+  // }, []);
+
   useEffect(() => {
-    axios.get("/api/products").then((response) => {
+    fetchProducts();
+  }, []);
+  async function fetchProducts() {
+    await axios.get("/api/products").then((response) => {
       setProducts(response.data);
     });
-  }, []);
+  }
   return (
     <Layout_admin>
       <Link

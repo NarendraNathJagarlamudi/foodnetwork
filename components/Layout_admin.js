@@ -23,7 +23,9 @@ export default function Layout_admin({ children }) {
     fetchAdminEmails();
   }, []); // Run the effect only once on component mount
 
-  const isAuthorized = adminEmails?.includes(session?.user?.email);
+  const isAuthorized = adminEmails
+    ?.map((email) => email.toLowerCase())
+    ?.includes(session?.user?.email.toLowerCase());
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
