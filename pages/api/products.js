@@ -37,7 +37,7 @@ export default async function handler(req, res) {
       res.json(await Product.findOne({ _id: req.query.id }));
     } else {
       const userProducts = await Product.find({
-        // user: session?.user?.email,
+        user: session?.user?.email,
       });
       res.json(userProducts);
     }
